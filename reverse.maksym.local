@@ -2,19 +2,19 @@
 ; BIND reverse data file for local loopback interface
 ;
 $TTL	604800
-@	IN	SOA	localhost. root.localhost. (
-			     21		; Serial
+@	IN	SOA	maksym.local. root.maksym.local. (
+			     22		; Serial
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
 			 604800 )	; Negative Cache TTL
 
 ;Your Name Server Info
-@       IN      NS      primary.maksym.local.
-primary IN      A       192.168.0.40
+@       IN      NS      maksym.local.
+@ 	IN      A       192.168.0.40
 
 ;Reverse Lookup for Your DNS Server
-40      IN      PTR     primary.maksym.local.
+40      IN      PTR     maksym.local.
 
 ;PTR Record IP address to HostName
 50      IN      PTR     www.maksym.local.

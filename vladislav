@@ -2,8 +2,8 @@
 ; BIND data file for local loopback interface
 ;
 $TTL	604800
-@	IN	SOA	shchedrov.local. root.shchedrov.local. (
-			     9		; Serial
+@	IN	SOA	vladislav. root.vladislav. (
+			      2		; Serial
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
@@ -11,24 +11,24 @@ $TTL	604800
 
 ;name servers - NS records
 
-@	IN	NS 	shchedrov.local.
+@	IN	NS 	vladislav.
 
 
 
 ;name servers - A records
 
-@ IN 	A	127.0.0.10
+@ IN 	A	127.0.0.2
 
 ;Mail Server MX records
 
-shchedrov.local	 IN	MX 	10 	mail.shchedrov.local.
+vladislav	 IN	MX 	10 	mail.vladislav.
 
 ;A records for Host names
 
-www 	IN	A	127.0.0.20
-mail	IN	A	127.0.0.30
+www 	IN	A	127.0.0.3
+mail	IN	A	127.0.0.4
 
 ;CNAME record
 
-ftp	IN	CNAME	www.shchedrov.local.
+ftp	IN	CNAME	www.vladislav.
 
