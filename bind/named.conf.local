@@ -1,0 +1,48 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "maksym.local"	{
+
+	type master;
+	file "/etc/bind/zones/forward/forward.maksym.local";
+
+};
+
+zone "0.168.192.in-addr.arpa"	{
+
+	type master;
+	file "/etc/bind/zones/reverse/reverse.maksym.local";
+
+};
+zone "shchedrov.local" {
+
+
+	type master;
+	file "/etc/bind/zones/forward/forward.shchedrov.local";
+
+};
+
+zone "0.0.127.in-addr.arpa"{
+
+	type master;
+	file "/etc/bind/zones/reverse/reverse.shchedrov.local";
+
+};
+
+zone "vladislav" {
+
+	type master;
+	file "/etc/bind/zones/forward/vladislav";
+
+};
+
+zone "1.0.127.in-addr.arpa"{
+
+	type master;
+	file "/etc/bind/zones/reverse/vladislav";
+};

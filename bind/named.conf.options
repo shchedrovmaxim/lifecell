@@ -12,12 +12,12 @@ options {
 		  172.17.0.1;
 	 };
 
-
 	recursion yes;
 };	
-
 forwarders {
 
 	 8.8.8.8; 
 };
+
+
 

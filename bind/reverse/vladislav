@@ -1,0 +1,23 @@
+;
+; BIND reverse data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	vladislav. root.vladislav. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+
+;Your Name Server Info
+@       IN      NS      vladislav.
+@	IN	NS	com.vladislav.
+@ 	IN      A       127.0.0.2
+@ 	IN	A	127.0.0.3
+
+;Reverse Lookup for Your DNS Server
+10      IN      PTR     vladislav.
+
+;PTR Record IP address to HostName
+20      IN      PTR     www.vladislav.
+30      IN      PTR     mail.vladislav.
