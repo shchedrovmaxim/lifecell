@@ -1,0 +1,28 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA 	maksym.local. root.maksym.local. (
+			      7		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+
+;Name Server Information
+@       IN      NS      maksym.local.
+
+;IP address of Your Domain Name Server(DNS)
+@ IN       A      192.168.0.40
+
+;Mail Server MX (Mail exchanger) Record
+maksym.local	IN  MX  10  mail.maksym.local.
+
+;A Record for Host names
+www    IN       A       192.168.0.50
+mail    IN       A       192.168.0.60
+
+;CNAME Record
+ftp     IN      CNAME    www.maksym.local.
+
+
