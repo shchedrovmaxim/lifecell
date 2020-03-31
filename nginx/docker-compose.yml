@@ -1,0 +1,19 @@
+version: '3.0'
+
+services:
+
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./site:/home/maksym/site
+      - ./conf.d:/etc/nginx/conf.d
+      - ./vladislav.crt:/etc/nginx/vladislav.crt
+      - ./vladislav.csr:/etc/nginx/vladislav.csr
+      - ./vladislav.key:/etc/nginx/vladislav.key
+      - ./dhparam.pem:/etc/nginx/dhparam.pem 
+    command: ['nginx', '-g', 'daemon off;']
+
+
