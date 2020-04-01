@@ -1,48 +1,41 @@
-//
-// Do any local configuration here
-//
 
-// Consider adding the 1918 zones here, if they are not used in your
-// organization
-//include "/etc/bind/zones.rfc1918";
+acl docker {
+	172.21.0.2;	
+	172.17.0.2;
+	172.19.0.2;
+	172.20.0.2;
+};
 
-zone "maksym.local"	{
+acl other {
 
-	type master;
-	file "/etc/bind/zones/forward/forward.maksym.local";
+	127.0.0.1;
+
+};
+view hello {
+
+	match-clients { docker; };
+	
+	zone "vladislav.local" {
+
+		type master;
+		file "/etc/bind/zones/forward/vladislav.local";
+
+	};
 
 };
 
-zone "0.168.192.in-addr.arpa"	{
+view hi {
 
-	type master;
-	file "/etc/bind/zones/reverse/reverse.maksym.local";
+	match-clients { other; };
+	
+	zone "maksym.local"	{
 
-};
-zone "shchedrov.local" {
+		type master;
+		file "/etc/bind/zones/forward/maksym.local";
 
-
-	type master;
-	file "/etc/bind/zones/forward/forward.shchedrov.local";
-
-};
-
-zone "0.0.127.in-addr.arpa"{
-
-	type master;
-	file "/etc/bind/zones/reverse/reverse.shchedrov.local";
+	};
 
 };
 
-zone "vladislav" {
 
-	type master;
-	file "/etc/bind/zones/forward/vladislav";
 
-};
-
-zone "1.0.127.in-addr.arpa"{
-
-	type master;
-	file "/etc/bind/zones/reverse/vladislav";
-};
