@@ -1,0 +1,16 @@
+cat access_log_vladislav_local_80.log | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" #match all ip 
+cat access_log_vladislav_local_80.log | grep ERROR #match all rows with ERROR
+cat access_log_vladislav_local_80.log | cut -d' ' -f1 | sort | uniq -c #match ip address and group by counts
+cat access_log_vladislav_local_80.log | cut -d' ' -f5 #print 5-th field
+cat access_log_vladislav_local_80.log | cut -d ':' -f5 #print 5-th field with delimiter :
+cat  access_log_vladislav_local_80.log | grep -A2 -B1 "ERROR" #print 2 raws before match and 1 after 
+cat access_log_vladislav_local_80.log | sed -n '/$1/,$p' #print all rows after first match
+cat access_log_vladislav_local_80.log | sed -n '25,36p' #print from 25 to 36 rows
+sed 's/$1/$2/' # change all words $1 to $2
+awk '$3 > 1024 {printf $0 "\n"}' # print all rows where 3-th field > 1024 
+cat file_name* | grep "word" # find all words in files "file_name*"
+cat file_name | wc -l #amount of rows in file "file_name"
+cat file_name | sed -n '$=' #amount of rows in file "file_name"
+ps U user | grep http #print all user's proces that have http
+ps -ef | awk '$2>10000 {printf $0 "\n"}'| grep http #print all proces that have PID >10000 and containe http 
+
