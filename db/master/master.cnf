@@ -1,0 +1,5 @@
+[mysqld]
+server-id=1
+binlog-format=ROW
+log-bin=/var/log/mysql/mysql-bin.log
+binlog_do_db=database
